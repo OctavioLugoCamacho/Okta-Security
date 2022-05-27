@@ -1,15 +1,18 @@
 package makingdevs.Okta.Security
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal
-import org.springframework.security.oauth2.core.user.OAuth2User
+import org.springframework.security.oauth2.core.oidc.user.OidcUser
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.stereotype.Controller
 
-@RestController
+
+@Controller
 class HomeController {
 
     @GetMapping("/")
-    public String home(@AuthenticationPrincipal OAuth2User user) {
-        return "Welcome, " + user.getFullName() + "!";
+    public String index(AuthenticationPrincipal principal) {
+        return "index"
     }
 }
